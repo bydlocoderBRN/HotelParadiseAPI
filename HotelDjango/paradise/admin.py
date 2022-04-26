@@ -9,4 +9,5 @@ admin.site.register(DateArray)
 admin.site.register(DateStatuses)
 admin.site.register(BookStatuses)
 admin.site.register(Links)
+admin.site.register(Prices)
 # Register your models here.

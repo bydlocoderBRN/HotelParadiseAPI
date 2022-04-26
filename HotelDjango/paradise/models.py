@@ -17,7 +17,7 @@ class Person(models.Model):
 
 
 class Room(models.Model):
-    price = models.IntegerField()
+    price = models.ForeignKey('Prices', on_delete=models.SET_NULL, null=True)
     description = models.CharField(max_length=512)
     links = models.ManyToManyField('Links')
 
@@ -40,7 +40,10 @@ class BookStatuses(models.Model):
     status = models.CharField(max_length=16)
 
 
-
+class Prices(models.Model):
+    start_date = models.DateField()
+    finish_date = models.DateField()
+    price = models.IntegerField()
 
 
 # создаем тут модель

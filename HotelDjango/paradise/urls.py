@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import PersonView
 from . import views
 
 urlpatterns = [
-    path('get_person', PersonView.as_view()),
+    path('get_person', views.BookingView.as_view()),
 ]
 
