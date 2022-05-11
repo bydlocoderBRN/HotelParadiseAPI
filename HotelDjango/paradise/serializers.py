@@ -18,13 +18,13 @@ class PricesSerializer(serializers.ModelSerializer):
 class BookStatusesSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookStatuses
-        fields = ['status']
+        fields = ['status_id', 'status_name']
 
 
 class DateStatusesSerializer(serializers.ModelSerializer):
     class Meta:
         model = DateStatuses
-        fields = ['status']
+        fields = ['status_id', 'status_name']
 
 
 class LinksSerializer(serializers.ModelSerializer):
@@ -47,7 +47,7 @@ class RoomSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Room
-        fields = ['description', 'price', 'links']
+        fields = [ 'room_number', 'description', 'price', 'links']
 
 
 class BookingSerializer(serializers.ModelSerializer):
@@ -61,23 +61,19 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = ['person', 'room', 'dates', 'book_status']
 
     def create(self, validated_data):
-        person = None
         room = None
-
-        if 'person' in validated_data:
-            person = validated_data['person']
-            person.save()
+        person = Person(**validated_data['person'])  #передаем все поля гостя
+        person.save()                                #апдейтим или создаем нового
         if 'room' in validated_data:
-            roomPK = validated_data['room']
-            room = Room.objects.get(pk=roomPK)
-        dates = validated_data['dates']
-        dates['date_status'] = DateStatuses(status='processing')
-        book_status = BookStatuses(status='free')
+            room = validated_data['room']   #поскольку отношение с комнатой у нас по pk, то сериалайзер сразу возвращает объект комнаты
+        dates = DateArray(**validated_data['dates'])
+        dates.date_status = DateStatuses.objects.get(status_name='В обработке')
+        dates.save()  #Создаем новый объект дат
+        book_status = BookStatuses.objects.get(status_name='В обработке') # присваиваем статус букингу
         book = Booking(person=person, room=room, dates=dates, book_status=book_status)
-        book.save()
+        book.save() #создаем и сохраняем новую бронь
 
     def update(self, instance, validated_data):
         for field in validated_data.keys():
-            instance[field] = validated_data['field']
-
+            instance[field] = validated_data[field]
         instance.save()
