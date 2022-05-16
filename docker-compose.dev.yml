@@ -1,5 +1,14 @@
 version: '3.7'
 services:
+#  react_app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.front.dev
+#    command: npm start
+#    ports:
+#      - 3000:3000
+#    depends_on:
+#      - dj_web
   dj_web:
     build:
       context: .

@@ -1,0 +1,5 @@
+FROM node:16-alpine
+RUN apk update
+COPY static/react /app
+WORKDIR /app
+RUN npm install

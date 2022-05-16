@@ -13,6 +13,8 @@ class Booking(models.Model):
         verbose_name = 'Брони'
         verbose_name_plural = 'Брони'
 
+    def person_phone(self):
+        return self.person
 
 class Person(models.Model):
     phone_number = models.CharField(max_length=20, unique=True, primary_key=True, verbose_name='Номер телефона')
@@ -25,6 +27,9 @@ class Person(models.Model):
         verbose_name = 'Гости'
         verbose_name_plural = 'Гости'
 
+    def __str__(self):
+        return self.phone_number
+
 
 class Room(models.Model):
     room_number = models.BigAutoField(primary_key=True, verbose_name='Номер комнаты')
@@ -35,6 +40,9 @@ class Room(models.Model):
     class Meta:
         verbose_name = 'Комната'
         verbose_name_plural = 'Комнаты'
+
+    def __str__(self):
+        return str(self.room_number)
 
 
 class Links(models.Model):
@@ -56,15 +64,24 @@ class DateArray(models.Model):
         verbose_name = 'Состояние дат'
         verbose_name_plural = 'Состояние дат'
 
+    def __str__(self):
+        return "C " + str(self.arrive_date) + " до " + str(self.leave_date)
+
 
 class DateStatuses(models.Model):
     status_id = models.AutoField(primary_key=True)
     status_name = models.CharField(max_length=16, verbose_name='Состояние промежутка дат')
 
+    def __str__(self):
+        return self.status_name
+
 
 class BookStatuses(models.Model):
     status_id = models.AutoField(primary_key=True)
     status_name = models.CharField(max_length=16, verbose_name='Статус брони')
+
+    def __str__(self):
+        return self.status_name
 
 
 class Prices(models.Model):
@@ -77,6 +94,8 @@ class Prices(models.Model):
         verbose_name = 'Цены'
         verbose_name_plural = 'Цены'
 
+    def __str__(self):
+        return str(self.price)
 
 # создаем тут модель
 # если надо добавляем в админку

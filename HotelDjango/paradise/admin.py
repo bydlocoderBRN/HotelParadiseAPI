@@ -2,12 +2,38 @@ from django.contrib import admin
 from .models import *
 
 
-admin.site.register(Booking)
-admin.site.register(Person)
-admin.site.register(Room)
-admin.site.register(DateArray)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('room', 'person', 'dates', 'book_status', 'book_creation_date')
+admin.site.register(Booking, BookingAdmin)
+
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('phone_number', 'last_name', 'first_name', 'father_name')
+admin.site.register(Person, PersonAdmin)
+
+
+class RoomAdmin(admin.ModelAdmin):
+    list_display = ('room_number', 'price')
+admin.site.register(Room, RoomAdmin)
+
+
+class PricesAdmin(admin.ModelAdmin):
+    list_display = ('price', 'start_date', 'finish_date')
+admin.site.register(Prices, PricesAdmin)
+
+
+class DateArrayAdmin(admin.ModelAdmin):
+    list_display = ('date_status', 'arrive_date', 'leave_date')
+admin.site.register(DateArray, DateArrayAdmin)
+
+
+class LinksAdmin(admin.ModelAdmin):
+    list_display = ('link',)
+admin.site.register(Links, LinksAdmin)
+
+
 admin.site.register(DateStatuses)
 admin.site.register(BookStatuses)
-admin.site.register(Links)
-admin.site.register(Prices)
+
+
 # Register your models here.
