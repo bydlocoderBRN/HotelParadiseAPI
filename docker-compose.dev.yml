@@ -1,23 +1,25 @@
 version: '3.7'
 services:
-#  react_app:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.front.dev
-#    command: npm start
+#  nginx:
+#    image: nginx:1.21.6-alpine
+#    volumes:
+#     - ./templates:/etc/nginx/templates
 #    ports:
-#      - 3000:3000
-#    depends_on:
-#      - dj_web
+#     - 8080:8080
+#     depends_on:
+#       - dj_web
   dj_web:
+#    image: chechkysh/hotelparadise_dj_web:1.1
     build:
       context: .
       dockerfile: Dockerfile.dev
-    command: python /usr/src/app/HotelDjango/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/usr/src/app/
+#    command: python /usr/src/app/HotelDjango/manage.py runserver 0.0.0.0:8000
+
+#    command: sh -c "python manage.py collectstatic && gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application"
+    command: gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug
     ports:
       - 8000:8000
+      - 80:80
     env_file:
       - ./.env.dev
     depends_on:

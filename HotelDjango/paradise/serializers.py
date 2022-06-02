@@ -60,6 +60,8 @@ class BookingSerializer(serializers.ModelSerializer):
         model = Booking
         fields = ['person', 'room', 'dates', 'book_status']
 
+
+
     def create(self, validated_data):
         room = None
         person = Person(**validated_data['person'])  #передаем все поля гостя
