@@ -30,7 +30,7 @@ class BookingView(APIView):
 
 class RoomViewTemp(APIView):
     def get(self, request):
-        raw_rooms = Room.objects.all()
+        raw_rooms = Room.objects.order_by('room_number')
         serialized_rooms = RoomSerializer(raw_rooms, many=True)
         return Response(serialized_rooms.data, status=status.HTTP_200_OK)
 

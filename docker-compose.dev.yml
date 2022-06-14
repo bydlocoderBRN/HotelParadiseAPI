@@ -9,17 +9,16 @@ services:
 #     depends_on:
 #       - dj_web
   dj_web:
-#    image: chechkysh/hotelparadise_dj_web:1.1
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    image: chechkysh/hotelparadise_dj_web:1.5.1
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.dev
 #    command: python /usr/src/app/HotelDjango/manage.py runserver 0.0.0.0:8000
 
-#    command: sh -c "python manage.py collectstatic && gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application"
-    command: gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug
+    command: sh -c "python manage.py collectstatic && nginx && gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug"
+#    command: gunicorn --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug
     ports:
-      - 8000:8000
-      - 80:80
+      - 8081:8081
     env_file:
       - ./.env.dev
     depends_on:
