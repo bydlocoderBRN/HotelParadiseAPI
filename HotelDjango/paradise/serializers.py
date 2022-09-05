@@ -79,3 +79,4 @@ class BookingSerializer(serializers.ModelSerializer):
         for field in validated_data.keys():
             instance[field] = validated_data[field]
         instance.save()
+

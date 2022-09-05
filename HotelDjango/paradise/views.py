@@ -22,7 +22,12 @@ class BookingView(APIView):
         booking_raw = request.data
         serialized_booking = BookingSerializer(data=booking_raw)
         if serialized_booking.is_valid(raise_exception=True):
-            serialized_booking.create(serialized_booking.validated_data)
+            person = serialized_booking["person"]
+            person_query = Booking.objects.filter(person__phone_number__exact = person['phone_number'])
+            if person_query.exists():
+                serialized_booking.update(list(person_query).pop())
+            else:
+                serialized_booking.create(serialized_booking.validated_data)
             return Response('Book created', status=status.HTTP_200_OK)
         else:
             return Response('Body is not valid', status=status.HTTP_400_BAD_REQUEST)
@@ -32,6 +37,7 @@ class RoomViewTemp(APIView):
     def get(self, request):
         raw_rooms = Room.objects.order_by('room_number')
         serialized_rooms = RoomSerializer(raw_rooms, many=True)
+
         return Response(serialized_rooms.data, status=status.HTTP_200_OK)
 
 

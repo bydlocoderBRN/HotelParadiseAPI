@@ -52,9 +52,9 @@ MIDDLEWARE = [
 ]
 # 'http://31.172.67.120:8081',
 
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:8081', 'http://31.172.67.120']
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:8081','http://looparadise.ru', 'https://127.0.0.1:8081','https://looparadise.ru' ]
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8081', 'http://31.172.67.120']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8081','http://looparadise.ru', 'https://127.0.0.1:8081','https://looparadise.ru']
 
 ROOT_URLCONF = 'HotelDjango.urls'
 
@@ -121,8 +121,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = "http://31.172.67.120:8081/staticfiles/"
+STATIC_URL ="https://looparadise.ru/staticfiles/"
+# STATIC_URL = "http://31.172.67.120:8081/staticfiles/"
 # STATIC_URL = "http://127.0.0.1:8081/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
@@ -130,6 +130,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-USE_I18N = True
+
 USE_L10N = False
 DATE_INPUT_FORMATS = ['%d-%m-%Y', ]

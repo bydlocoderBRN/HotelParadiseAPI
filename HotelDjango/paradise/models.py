@@ -16,6 +16,8 @@ class Booking(models.Model):
     def person_phone(self):
         return self.person
 
+
+
 class Person(models.Model):
     phone_number = models.CharField(max_length=20, unique=True, primary_key=True, verbose_name='Номер телефона')
     first_name = models.CharField(max_length=32, verbose_name='Имя')
@@ -35,8 +37,8 @@ class Room(models.Model):
     room_number = models.BigAutoField(primary_key=True, verbose_name='Номер комнаты')
     price = models.ForeignKey('Prices', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Цена в период')
     description = models.CharField(max_length=512, verbose_name='Описание комнаты', blank=True)
-    links = models.ManyToManyField('Links', blank=True, verbose_name='Ссылки на фотографии комнаты')
-
+    # links = models.ManyToManyField('Links', blank=True, verbose_name='Ссылки на фотографии комнаты')
+    # dates = []
     class Meta:
         verbose_name = 'Комната'
         verbose_name_plural = 'Комнаты'
@@ -48,17 +50,21 @@ class Room(models.Model):
 class Links(models.Model):
     link_id = models.BigAutoField(primary_key=True)
     link = models.CharField(max_length=255, verbose_name='Ссылка')
-
+    title = models.CharField(max_length=64, blank=True, null=True)
+    room = models.ForeignKey(Room, related_name='links', on_delete=models.CASCADE)
     class Meta:
         verbose_name = 'Ссылки на фото'
         verbose_name_plural = 'Ссылки на фото'
+    def __str__(self):
+        return str(self.link)
 
 
 class DateArray(models.Model):
     array_id = models.BigAutoField(primary_key=True, blank=True)
     arrive_date = models.DateField(verbose_name='Начало промежутка дат')
     leave_date = models.DateField(verbose_name='Конец промежутка дат')
-    date_status = models.ForeignKey('DateStatuses', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Статус промежутка дат')
+    date_status = models.ForeignKey('DateStatuses', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Статус дат')
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='dates')
 
     class Meta:
         verbose_name = 'Состояние дат'

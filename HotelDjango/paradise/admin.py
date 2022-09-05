@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import *
 
+#todo почтовые оповещения, оповещения на телефон.
+#todo вьюсеты и роутеры разобраться
+#todo автопродление сертификата через крон)))
 
 class BookingAdmin(admin.ModelAdmin):
     list_display = ('room', 'person', 'dates', 'book_status', 'book_creation_date')
