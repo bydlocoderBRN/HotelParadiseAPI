@@ -57,8 +57,6 @@ class ModelsTestCase(TestCase):
     def test_get_dates_array(self):
         resp: Response = self.client.get("/paradise/room/1/dates/array?start_date=2022-01-01&finish_date=2022-01-29")
         dates = list(resp.data)
-        print("DATEA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(dates)
         self.assertEqual(len(dates), 4)
 
     def check_one_date(self, date) -> Response:
