@@ -38,7 +38,7 @@ sshdocker:
 #image: python:3.9.12ф
 #я откдючил общие бегуныaaaasd
 #before_script:
-#  - python --versiona
+#  - python --version
 #  - pip install virtualenv
 #  - virtualenv venv
 #  - source venv/bin/activatef
