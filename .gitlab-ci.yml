@@ -9,6 +9,7 @@ mkdir:
   script:
     - ls
     - pwd
+    - export
 
 
 #image: python:3.9.12
