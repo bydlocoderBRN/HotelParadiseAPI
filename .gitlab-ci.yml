@@ -11,7 +11,7 @@ mkdir:
 
 
 #image: python:3.9.12
-#dadsd
+#я откдючил общие бегуны
 #before_script:
 #  - python --version
 #  - pip install virtualenv
