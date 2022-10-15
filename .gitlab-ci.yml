@@ -11,7 +11,7 @@ mkdir:
     - pwd
     - export
     - cd ..
-    - cp ./hotelparadise /home/paradisetest
+    - cp -R ./hotelparadise /home/paradisetest
 
 
 #image: python:3.9.12
