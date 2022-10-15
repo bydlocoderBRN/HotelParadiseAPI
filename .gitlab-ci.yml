@@ -7,6 +7,7 @@ mkdir:
   tags:
     - paradise
   script:
+    - cd /
     - ls
 
 
