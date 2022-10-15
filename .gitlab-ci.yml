@@ -1,12 +1,28 @@
-image: python:3.9.12
-
-before_script:
-  - python --version
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-  - pip install requirements.txt
-
-test:
+stages:
+  - build
+  - test
+  - deploy
+mkdir:
+  stage:
+    - build
+  tags:
+    - paradise
   script:
-    - python HotelDjango/manage.py test paradise
+    - mkdir paradisetest
+
+
+#image: python:3.9.12
+#
+#before_script:
+#  - python --version
+#  - pip install virtualenv
+#  - virtualenv venv
+#  - source venv/bin/activate
+#  - pip install requirements.txt
+#
+#test:
+#  script:
+#    - python HotelDjango/manage.py test paradise
+#  tags:
+#    - paradise
+
