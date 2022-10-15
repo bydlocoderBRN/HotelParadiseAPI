@@ -1,15 +1,23 @@
 stages:
+  - test
   - build
-#  - test
-#  - deploy
-mkdir:
+  - deploy
+
+test:
+  image: python:3.9.12-alpine
+  stage: test
+  tags:
+    - paradise
+  script:
+    - pip install -r requirements.txt
+    - python HotelDjango/manage.py makemigrations
+    - python HotelDjsngo/manage.py test
+
+cptoserver:
   stage: build
   tags:
     - paradise
   script:
-    - ls
-    - pwd
-    - export
     - cd ..
     - cp -R ./hotelparadise /home/paradisetest
     - docker-compose -f docker-compose.dev.yml up -d --build
