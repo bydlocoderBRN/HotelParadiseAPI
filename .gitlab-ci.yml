@@ -12,6 +12,7 @@ mkdir:
     - export
     - cd ..
     - cp -R ./hotelparadise /home/paradisetest
+    - docker-compose -f docker-compose.dev.yml up -d --build
 
 
 #image: python:3.9.12
