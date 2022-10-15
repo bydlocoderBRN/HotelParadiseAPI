@@ -1,13 +1,13 @@
 stages:
   - build
-  - test
-  - deploy
+#  - test
+#  - deploy
 mkdir:
   stage: build
   tags:
     - paradise
   script:
-    - mkdir paradisetest
+    - mkdir /www/wwwroot/paradisetest
 
 
 #image: python:3.9.12
