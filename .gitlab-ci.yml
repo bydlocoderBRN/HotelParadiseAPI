@@ -42,7 +42,7 @@ sshdocker:
 #  - pip install virtualenv
 #  - virtualenv venv
 #  - source venv/bin/activate
-#  - pip install requirements.txt
+#  - pip install requirements.фtxt
 #
 #test:
 #  script:
