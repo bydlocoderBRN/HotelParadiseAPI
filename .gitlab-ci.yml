@@ -29,6 +29,8 @@ sshdocker:
   stage: deploy
   tags:
     - ssh
+  before_script:
+    - sudo su
   script:
     - ls
 #    - sudo su
