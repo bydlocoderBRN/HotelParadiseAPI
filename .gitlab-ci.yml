@@ -15,7 +15,7 @@ test:
   script:
     - pip install -r requirements.txt
     - python HotelDjango/manage.py makemigrations
-    - python HotelDjango/manage.py test
+    - python HotelDjango/manage.py test paradise
 
 cptoserver:
   stage: build
