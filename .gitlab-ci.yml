@@ -7,7 +7,7 @@ mkdir:
   tags:
     - paradise
   script:
-    - mkdir /www/wwwroot/paradisetest
+    - mkdir /paradisetest
 
 
 #image: python:3.9.12
