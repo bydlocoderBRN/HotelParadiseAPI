@@ -7,7 +7,6 @@ mkdir:
   tags:
     - paradise
   script:
-    - mkdir /home/paradisetest
     - ls
     - pwd
     - export
