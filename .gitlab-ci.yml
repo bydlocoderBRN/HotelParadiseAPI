@@ -29,7 +29,7 @@ cptoserver:
 
 
 #image: python:3.9.12
-#я откдючил общие бегуны
+#я откдючил общие бегуныaaa
 #before_script:
 #  - python --version
 #  - pip install virtualenv
