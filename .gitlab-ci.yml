@@ -6,11 +6,10 @@ stages:
 test:
   image: python:3.9.12-alpine
   stage: test
-#  before_script:
-#    - apk add py3-pip
-##    - sudo apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-##    - sudo python3 -m ensurepip
-##    - sudo pip3 install --no-cache --upgrade pip setuptools
+  before_script:
+    - apk add postgresql-dev gcc python3-dev musl-dev
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
   tags:
     - paradise
   script:
