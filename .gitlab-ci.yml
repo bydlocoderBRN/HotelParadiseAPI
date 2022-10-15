@@ -7,9 +7,12 @@ mkdir:
   tags:
     - paradise
   script:
+    - mkdir /home/paradisetest
     - ls
     - pwd
     - export
+    - cd ..
+    - cp ./hotelparadise /home/paradisetest
 
 
 #image: python:3.9.12
