@@ -3,8 +3,7 @@ stages:
   - test
   - deploy
 mkdir:
-  stage:
-    - build
+  stage: build
   tags:
     - paradise
   script:
