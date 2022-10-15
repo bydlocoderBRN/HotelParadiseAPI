@@ -31,10 +31,10 @@ sshdocker:
     - ssh
   before_script:
     - apk add --update --no-cache openssh sshpass
-    - ssh-keygen -t rsa
-    - scp ~/.ssh/id_rsa.pub root@31.172.67.174
+    - systemctl ssh start
+    - service sshd enable
   script:
-    -  ssh root@31.172.67.174 "mkdir -p ~/.ssh&&touch ~/.ssh/authorized_keys&&cat ~/id_rsa.pub >> ~/.ssh/authorized_keys&&ls"
+    - sshpass -p 'zGC1zCTtay07rhYF' | ssh root@31.172.67.174
 # - sshpass -p 'zGC1zCTtay07rhYF'
 #    - ssh root@31.172.67.174:22 lsa
 #image: python:3.9.12ф
