@@ -7,9 +7,9 @@ test:
   image: python:3.9.12-alpine
   stage: test
   before_script:
-    - apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-    - python3 -m ensurepip
-    - pip3 install --no-cache --upgrade pip setuptools
+    - sudo apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+    - sudo python3 -m ensurepip
+    - sudo pip3 install --no-cache --upgrade pip setuptools
   tags:
     - paradise
   script:
