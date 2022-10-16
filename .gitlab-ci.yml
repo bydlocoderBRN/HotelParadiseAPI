@@ -23,7 +23,9 @@ cptoserver:
     - paradise
   script:
     - cp -R . /home/paradise
-
+    - cd home/paradise
+    - ls
+    - pwd
 
 #sshdocker:
 #  stage: deploy
