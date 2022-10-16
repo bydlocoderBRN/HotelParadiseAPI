@@ -1,34 +1,36 @@
 stages:
-  - test
+#  - test
   - build
-  - deploy
+#  - deploy
 
-test:
-  image: python:3.9.12-alpine
-  stage: test
-  before_script:
-    - apk add postgresql-dev gcc python3-dev musl-dev
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
-  tags:
-    - paradise
-  script:
-    - pip install -r requirements.txt
-    - python HotelDjango/manage.py makemigrations
-    - python HotelDjango/manage.py test paradise
+#test:
+#  image: python:3.9.12-alpine
+#  stage: test
+#  before_script:
+#    - apk add postgresql-dev gcc python3-dev musl-dev
+#    - pip install --upgrade pip
+#    - pip install -r requirements.txt
+#  tags:
+#    - paradise
+#  script:
+#    - pip install -r requirements.txt
+#    - python HotelDjango/manage.py makemigrations
+#    - python HotelDjango/manage.py test paradise
 
 cptoserver:
   stage: build
   tags:
     - paradise
   script:
-    - cp -R ./HotelParadise /home/paradise
+    - ls
+    - pwd
+#    - cp -R ./HotelParadise /home/paradise
 
-sshdocker:
-  stage: deploy
-  tags:
-    - ssh
-  script:
-    - ssh -tt root@31.172.67.174 "cd /www/wwwroot/paradise-hotel-loo.ru/hotelparadise_back &&\
-      docker-compose -f docker-compose.dev.yml up -d --build && docker exec hotelparadise python manage.py makemigrations &&\
-      docker exec hotelparadise python manage.py migrate"
+#sshdocker:
+#  stage: deploy
+#  tags:
+#    - ssh
+#  script:
+#    - ssh -tt root@31.172.67.174 "cd /www/wwwroot/paradise-hotel-loo.ru/hotelparadise_back &&\
+#      docker-compose -f docker-compose.dev.yml up -d --build && docker exec hotelparadise python manage.py makemigrations &&\
+#      docker exec hotelparadise python manage.py migrate"
