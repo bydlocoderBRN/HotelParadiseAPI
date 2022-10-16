@@ -20,7 +20,7 @@ stages:
 cptoserver:
   stage: build
   tags:
-    - paradise
+    - cp
   script:
     - cp -R . /home/paradise
     - cd /home/paradise
