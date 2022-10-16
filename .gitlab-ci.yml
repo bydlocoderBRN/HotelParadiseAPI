@@ -1,21 +1,21 @@
 stages:
-#  - test
+  - test
   - build
 #  - deploy
 
-#test:
-#  image: python:3.9.12-alpine
-#  stage: test
-#  before_script:
-#    - apk add postgresql-dev gcc python3-dev musl-dev
-#    - pip install --upgrade pip
-#    - pip install -r requirements.txt
-#  tags:
-#    - paradise
-#  script:
-#    - pip install -r requirements.txt
-#    - python HotelDjango/manage.py makemigrations
-#    - python HotelDjango/manage.py test paradise
+test:
+  image: python:3.9.12-alpine
+  stage: test
+  before_script:
+    - apk add postgresql-dev gcc python3-dev musl-dev
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  tags:
+    - paradise
+  script:
+    - pip install -r requirements.txt
+    - python HotelDjango/manage.py makemigrations
+    - python HotelDjango/manage.py test paradise
 
 cptoserver:
   stage: build
