@@ -23,7 +23,7 @@ cptoserver:
     - paradise
   script:
     - cp -R . /home/paradise
-    - cd home/paradise
+    - cd /home/paradise
     - ls
     - pwd
 
