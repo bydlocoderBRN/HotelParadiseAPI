@@ -24,7 +24,7 @@ cptoserver:
   script:
     - ls
     - pwd
-#    - cp -R ./HotelParadise /home/paradise
+    - cp -R . /home/paradise
 
 #sshdocker:
 #  stage: deploy
