@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  dj_web:
+    container_name: hotelparadise
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+#    image: chechkysh/hotelparadise_dj_web:2.1.4
+#    command: sh -c "python manage.py collectstatic && nginx && gunicorn --certfile=/etc/nginx/fullchain.pem --keyfile=/etc/nginx/privkey.pem --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug"
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8081:8081
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - hotel_db
+  hotel_db:
+    restart: on-failure
+    image: postgres:14.4-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=looparadiseadmin
+      - POSTGRES_PASSWORD=looparadiseadmin
+      - POSTGRES_DB=looparadise
+volumes:
+  postgres_data:
