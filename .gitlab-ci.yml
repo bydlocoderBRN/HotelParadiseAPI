@@ -22,8 +22,6 @@ cptoserver:
   tags:
     - paradise
   script:
-    - ls
-    - pwd
     - cp -R . /home/paradise
     - cd /home/paradise
     - ls
