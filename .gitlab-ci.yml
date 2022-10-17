@@ -10,12 +10,13 @@ test:
     - apk add postgresql-dev gcc python3-dev musl-dev
     - pip install --upgrade pip
     - pip install -r requirements.txt
+    - pip install flake8
   tags:
     - paradise
   script:
-    - pip install -r requirements.txt
     - python HotelDjango/manage.py makemigrations
     - python HotelDjango/manage.py test paradise
+    - flake8 HotelDjango
 
 cptoserver:
   stage: build
