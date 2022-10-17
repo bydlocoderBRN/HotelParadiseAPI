@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import *
+from .models import Prices, DateArray, DateStatuses, Links, Room
 
 
 class PricesSerializer(serializers.ModelSerializer):
