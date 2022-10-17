@@ -11,12 +11,14 @@ test:
     - pip install --upgrade pip
     - pip install -r requirements.txt
     - pip install flake8
+    - pip install mypy
   tags:
     - paradise
   script:
     - python HotelDjango/manage.py makemigrations
     - python HotelDjango/manage.py test paradise
     - flake8 HotelDjango
+    - mypy HotelDjango
 
 cptoserver:
   stage: build
