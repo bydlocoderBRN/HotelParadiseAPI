@@ -33,3 +33,6 @@ sshdocker:
     - ssh
   script:
     - ssh -tt root@31.172.67.174 "cd /www/wwwroot/paradise-hotel-loo.ru/hotelparadise_back &&docker-compose -f docker-compose.dev.yml up -d --build &&docker exec hotelparadise python manage.py makemigrations &&docker exec hotelparadise python manage.py migrate"
+
+#jenkins api token
+#119282b94270f51b99438b2b598005c873
