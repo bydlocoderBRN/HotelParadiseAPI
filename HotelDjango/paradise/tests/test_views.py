@@ -1,5 +1,5 @@
 from django.test import TestCase
-from paradise.models import Room, DateStatuses, DateArray
+from HotelDjango.paradise.models import Room, DateStatuses, DateArray
 from rest_framework.response import Response
 
 
