@@ -5,7 +5,7 @@ from .models import Room, Prices, DateArray, Links, DateStatuses
 
 # todo почтовые оповещения, оповещения на телефон.
 # todo автопродление сертификата через крон)))
-#FSFSDFSDF
+# FSFSDFSDF
 
 class RoomAdmin(admin.ModelAdmin):
     list_display = ('room_number', 'price')
