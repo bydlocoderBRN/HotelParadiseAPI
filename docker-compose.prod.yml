@@ -17,7 +17,7 @@ services:
     volumes:
       - hotel_postgres_data:/var/lib/postgresql/data/
     ports:
-      - 5433:5432
+      - 5432:5432
     environment:
       - POSTGRES_USER=looparadiseadmin
       - POSTGRES_PASSWORD=looparadiseadmin
