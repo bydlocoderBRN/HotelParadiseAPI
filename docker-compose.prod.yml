@@ -16,8 +16,8 @@ services:
     image: postgres:14.4-alpine
     volumes:
       - hotel_postgres_data:/var/lib/postgresql/data/
-    ports:
-      - 5432:5432
+    expose:
+      - 5432
     environment:
       - POSTGRES_USER=looparadiseadmin
       - POSTGRES_PASSWORD=looparadiseadmin
