@@ -1,0 +1,43 @@
+/* 
+.btn-red { background-color: red; }
+
+.btn-red:before {
+    position: absolute;
+    content:"";
+    border-top: 5px solid lighten(red, 5%);
+    border-left: 5px solid lighten(red, 5%);  
+    border-right: 5px solid darken(red, 5%);
+    border-bottom: 5px solid darken(red, 5%);  
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;    
+    transition: 0.5s;  
+  }
+
+  .wrapper {
+    width: 720px;
+    margin: 45px auto; 
+    h1 {
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase; 
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase; 
+    }
+    .btn-groups {
+      width: 640px;
+      margin: 0 auto;
+    }
+  }
+
+.btn-red:hover {
+    box-shadow: 7px 7px darken(red, 20%), -7px -7px lighten(red, 20%);
+    cursor: pointer;
+      &::before {
+      border: 0px ;
+    }
+  } */
