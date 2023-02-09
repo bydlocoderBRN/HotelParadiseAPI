@@ -2,7 +2,10 @@ version: '3.7'
 services:
   dj_web:
   
-    image: chechkysh/hotelparadise_dj_web:2.1.4
+#    image: chechkysh/hotelparadise_dj_web:2.1.4
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     command: sh -c "python manage.py collectstatic --noinput && nginx && gunicorn --certfile=/etc/nginx/fullchain.pem --keyfile=/etc/nginx/privkey.pem --bind 0.0.0.0:8000 HotelDjango.wsgi:application server --log-level debug"
     ports:
       - 8081:8081
@@ -11,6 +14,8 @@ services:
       - ./.env.dev
     depends_on:
       - hotel_db
+    volumes:
+      - certs:/etc/nginx/
   hotel_db:
     restart: on-failure
     image: postgres:14.4-alpine
@@ -24,3 +29,4 @@ services:
       - POSTGRES_DB=looparadise
 volumes:
   hotel_postgres_data:
+  certs:

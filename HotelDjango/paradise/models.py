@@ -16,7 +16,8 @@ class Prices(models.Model):
 
 
 class Room(models.Model):
-    room_number = models.BigAutoField(primary_key=True, verbose_name='Номер комнаты')
+    room_id = models.BigAutoField(primary_key=True)
+    room_number = models.IntegerField(verbose_name='Номер комнаты')
     title = models.CharField(max_length=128, null=True, blank=True)
     price = models.ForeignKey(Prices, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Цена в период')
     description = models.CharField(max_length=512, verbose_name='Описание комнаты', blank=True)
