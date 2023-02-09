@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   dj_web:
-  
+
 #    image: chechkysh/hotelparadise_dj_web:2.1.4
     build:
       context: .
@@ -27,6 +27,14 @@ services:
       - POSTGRES_USER=looparadiseadmin
       - POSTGRES_PASSWORD=looparadiseadmin
       - POSTGRES_DB=looparadise
+  front:
+    container_name: "hotelfront"
+    build:
+      context: ./Front
+      dockerfile: Dockerfile_front
+    volumes:
+      - front:/usr/src/app/build
 volumes:
   hotel_postgres_data:
   certs:
+  front:
