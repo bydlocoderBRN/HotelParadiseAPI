@@ -27,14 +27,14 @@ services:
       - POSTGRES_USER=looparadiseadmin
       - POSTGRES_PASSWORD=looparadiseadmin
       - POSTGRES_DB=looparadise
-  front:
-    container_name: "hotelfront"
-    build:
-      context: ./Front
-      dockerfile: Dockerfile_front
-    volumes:
-      - front:/usr/src/app/build
+#  front:
+#    container_name: "hotelfront"
+#    build:
+#      context: ./Front
+#      dockerfile: Dockerfile_front
+#    volumes:
+#      - front:/usr/src/app/build
 volumes:
   hotel_postgres_data:
   certs:
-  front:
+#  front:
