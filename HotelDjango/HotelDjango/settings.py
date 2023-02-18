@@ -53,8 +53,8 @@ MIDDLEWARE = [
 ]
 # 'http://31.172.67.120:8081',
 
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:8081', 'http://looparadise.ru', 'https://127.0.0.1:8081',
-                        'https://looparadise.ru', "http://localhost:3001"]
+# CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:8081', 'http://looparadise.ru', 'https://127.0.0.1:8081',
+#                         'https://looparadise.ru', "http://localhost:3001"]
 
 CORS_ALLOW_ALL_ORIGIN = True
 
