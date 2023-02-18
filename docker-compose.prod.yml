@@ -2,7 +2,7 @@ version: '3.7'
 services:
   dj_web:
 
-#    image: chechkysh/hotelparadise_dj_web:2.1.4
+#    image: chechkysh/hotelparadise_dj_web:2.1.4 AAAAAAAA
     build:
       context: .
       dockerfile: Dockerfile.dev
